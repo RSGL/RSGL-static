@@ -67,7 +67,7 @@ int main(int args, char** argv){
 				
 				f = fopen(file.c_str(), "w+");
 				
-				fputs(desktopFile(bin[0]).c_str(),f); // write the desktop data into the file
+				fputs(desktopFile(name).c_str(),f); // write the desktop data into the file
 				
 				fclose(f);			
 
@@ -109,8 +109,13 @@ int main(int args, char** argv){
 				}
 			
 				// generate the appImage
-				cmd = "ARCH=x86_64 appimagetool " + dir + "/ " + name; 
+				cmd = "ARCH=x86_64 appimagetool " + dir + "/ " + name + ".appImage"; 
 				
+				system(cmd.c_str());
+
+				// clean up
+				cmd = "rm -r " + dir;
+
 				system(cmd.c_str());
 			}
 		}
