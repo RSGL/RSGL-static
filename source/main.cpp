@@ -4,8 +4,15 @@
 
 bool appImage = false; // if we're creating an appImage
 
-// libs to be linked (default : static)
+// libs to be linked (default : static) 
+// linux libs
+#ifdef __linux__
 std::string libs = "/usr/local/lib/libRSGL.a -lGL -lfreetype -lX11";
+#endif
+// WIN32 libs
+#ifdef _WIN32 
+std::string libs = "-lcomdlg32 -lgdi32 -lxinput -lpsapi -ldwmapi -lole32 -luuid -lshcore -lopengl32"
+#endif
 
 std::vector<std::string> bin, lib, res; // data for the app
 char cur = 'b'; // bin by default 
