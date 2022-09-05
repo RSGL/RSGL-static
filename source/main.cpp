@@ -116,7 +116,7 @@ int main(int args, char** argv){
 				// clean up
 				cmd = "rm -r " + dir;
 
-				system(cmd.c_str());
+				//system(cmd.c_str());
 			}
 		}
 	}
